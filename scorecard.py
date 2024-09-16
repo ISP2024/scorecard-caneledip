@@ -17,7 +17,6 @@ Observe how the type hint helps it perform static checking.
    Include the type of keys and values.
 
 """
-from typing import Iterable, Iterator
 
 
 class Scorecard():
