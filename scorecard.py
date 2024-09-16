@@ -17,25 +17,26 @@ Observe how the type hint helps it perform static checking.
    Include the type of keys and values.
 
 """
+from typing import Iterable, Iterator
 
 
-class Scorecard:
+class Scorecard():
     """Accumulate scores and compute their average."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Iniiialize a new Scorecard."""
-        self.scores = []
+        self.scores : list[float] = []
 
-    def add_score(self, score: float):
+    def add_score(self, score: float) -> None:
         """Add a score to the Scorecard."""
         self.scores.append(score)
 
     def average(self) -> float:
         """Return the average of all scores, 0 if no scores."""
-        return sum(self.scores)/max(1, len(self.scores))
+        return sum(float(x) for x in self.scores)
 
 
-def print_scores(score_card: Scorecard):
+def print_scores(score_card: Scorecard) -> None:
     """Print statistics for the scorecard and the actual scores."""
 
     # What changes to Scorecard are needed in order to make this code work?
@@ -46,7 +47,7 @@ def print_scores(score_card: Scorecard):
         print(score)
 
 
-def ordinal(num: int):
+def ordinal(num: int) -> str:
     """Return the ordinal value of an integer; works for numbers up to 20.
 
     For examples: ordinal(1) is '1st', ordinal(2) is '2nd'.
